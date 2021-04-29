@@ -1196,11 +1196,6 @@ void setup() {
     SETUP_RUN(buzzer.init());
   #endif
 
-  // Init buzzer pin(s)
-  #if USE_BEEPER
-    SETUP_RUN(buzzer.init());
-  #endif
-
   // Set up LEDs early
   #if HAS_COLOR_LEDS
     SETUP_RUN(leds.setup());
