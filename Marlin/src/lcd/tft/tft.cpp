@@ -26,6 +26,19 @@
 
 #include "tft.h"
 
+<<<<<<<< HEAD:Marlin/src/gcode/sd/M20.cpp
+/**
+ * M20: List SD card to serial output
+ */
+void GcodeSuite::M20() {
+  if (card.flag.mounted) {
+    SERIAL_ECHOLNPGM(STR_BEGIN_FILE_LIST);
+    card.ls(TERN_(LONG_FILENAME_HOST_SUPPORT, parser.boolval('L')));
+    SERIAL_ECHOLNPGM(STR_END_FILE_LIST);
+  }
+  else
+    SERIAL_ECHO_MSG(STR_NO_MEDIA);
+========
 //#define DEBUG_GRAPHICAL_TFT
 #define DEBUG_OUT ENABLED(DEBUG_GRAPHICAL_TFT)
 #include "../../core/debug_out.h"
@@ -35,6 +48,7 @@ uint16_t TFT::buffer[];
 void TFT::init() {
   io.Init();
   io.InitTFT();
+>>>>>>>> Oficial/2.0.x:Marlin/src/lcd/tft/tft.cpp
 }
 
 TFT tft;

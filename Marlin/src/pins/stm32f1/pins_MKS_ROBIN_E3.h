@@ -29,8 +29,21 @@
   #error "MKS Robin E3 only supports one hotend / E-stepper. Comment out this line to continue."
 #endif
 
+<<<<<<<< HEAD:Marlin/src/HAL/TEENSY35_36/inc/SanityCheck.h
+#if ENABLED(FAST_PWM_FAN) || SPINDLE_LASER_FREQUENCY
+  #error "Features requiring Hardware PWM (FAST_PWM_FAN, SPINDLE_LASER_FREQUENCY) are not yet supported on Teensy 3.5/3.6."
+#endif
+
+#if HAS_TMC_SW_SERIAL
+  #error "TMC220x Software Serial is not supported on Teensy 3.5/3.6."
+#endif
+
+#if ENABLED(POSTMORTEM_DEBUGGING)
+  #error "POSTMORTEM_DEBUGGING is not yet supported on Teensy 3.5/3.6."
+========
 #ifndef BOARD_INFO_NAME
   #define BOARD_INFO_NAME "MKS Robin E3"
+>>>>>>>> Oficial/2.0.x:Marlin/src/pins/stm32f1/pins_MKS_ROBIN_E3.h
 #endif
 
 #include "pins_MKS_ROBIN_E3_common.h"

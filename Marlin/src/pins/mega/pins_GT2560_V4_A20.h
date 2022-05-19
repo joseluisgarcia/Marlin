@@ -1,6 +1,10 @@
 /**
  * Marlin 3D Printer Firmware
+<<<<<<<< HEAD:Marlin/src/HAL/ESP32/inc/SanityCheck.h
+ * Copyright (c) 2020 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+========
  * Copyright (c) 2021 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+>>>>>>>> Oficial/2.0.x:Marlin/src/pins/mega/pins_GT2560_V4_A20.h
  *
  * Based on Sprinter and grbl.
  * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
@@ -21,6 +25,27 @@
  */
 #pragma once
 
+<<<<<<<< HEAD:Marlin/src/HAL/ESP32/inc/SanityCheck.h
+#if ENABLED(EMERGENCY_PARSER)
+  #error "EMERGENCY_PARSER is not yet implemented for ESP32. Disable EMERGENCY_PARSER to continue."
+#endif
+
+#if ENABLED(FAST_PWM_FAN) || SPINDLE_LASER_FREQUENCY
+  #error "Features requiring Hardware PWM (FAST_PWM_FAN, SPINDLE_LASER_FREQUENCY) are not yet supported on ESP32."
+#endif
+
+#if HAS_TMC_SW_SERIAL
+  #error "TMC220x Software Serial is not supported on ESP32."
+#endif
+
+#if BOTH(WIFISUPPORT, ESP3D_WIFISUPPORT)
+  #error "Only enable one WiFi option, either WIFISUPPORT or ESP3D_WIFISUPPORT."
+#endif
+
+#if ENABLED(POSTMORTEM_DEBUGGING)
+  #error "POSTMORTEM_DEBUGGING is not yet supported on ESP32."
+#endif
+========
 /**
  * Geeetech A20 GT2560 V4.x board pin assignments
  */
@@ -41,3 +66,4 @@
 #endif
 
 #include "pins_GT2560_V3.h"
+>>>>>>>> Oficial/2.0.x:Marlin/src/pins/mega/pins_GT2560_V4_A20.h

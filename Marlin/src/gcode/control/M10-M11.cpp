@@ -1,6 +1,10 @@
 /**
  * Marlin 3D Printer Firmware
+<<<<<<<< HEAD:Marlin/src/gcode/sd/M21_M22.cpp
+ * Copyright (c) 2020 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+========
  * Copyright (c) 2021 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+>>>>>>>> Oficial/2.0.x:Marlin/src/gcode/control/M10-M11.cpp
  *
  * Based on Sprinter and grbl.
  * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
@@ -37,8 +41,13 @@ void GcodeSuite::M10() {
 /**
  * M11: Vacuum or Blower OFF
  */
+<<<<<<<< HEAD:Marlin/src/gcode/sd/M21_M22.cpp
+void GcodeSuite::M22() {
+  if (!IS_SD_PRINTING()) card.release();
+========
 void GcodeSuite::M11() {
   cutter.air_evac_disable();  // Turn off Vacuum or Blower motor
+>>>>>>>> Oficial/2.0.x:Marlin/src/gcode/control/M10-M11.cpp
 }
 
 #endif // AIR_EVACUATION

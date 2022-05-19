@@ -21,26 +21,23 @@
  */
 #pragma once
 
+#include "../../../core/types.h"
+#include "../../../feature/bedlevel/bedlevel.h"
+
 /**
- * Lock screen implementation for DWIN UI Enhanced implementation
- * Author: Miguel A. Risco-Castillo
- * Version: 2.1
- * Date: 2021/11/09
+ * Mesh Viewer for PRO UI
+ * Author: Miguel A. Risco-Castillo (MRISCOC)
+ * version: 3.14.1
+ * Date: 2022/04/11
  */
 
-#include "../common/encoder.h"
-#include <stdint.h>
-
-class LockScreenClass {
-private:
-  static bool unlocked;
-  static uint8_t lock_pos;
+class MeshViewerClass {
 public:
-  static uint8_t rprocess;
-  static void init();
-  static void onEncoder(EncoderState encoder_diffState);
-  static void draw();
-  static bool isUnlocked() { return unlocked; }
+  float max, min;
+  void Draw(bool withsave = false);
+  void DrawMesh(bed_mesh_t zval, const uint8_t sizex, const uint8_t sizey);
 };
 
-extern LockScreenClass lockScreen;
+extern MeshViewerClass MeshViewer;
+
+void Goto_MeshViewer();

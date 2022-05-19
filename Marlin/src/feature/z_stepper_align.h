@@ -22,6 +22,20 @@
 #pragma once
 
 /**
+<<<<<<<< HEAD:Marlin/src/pins/stm32f1/pins_MKS_ROBIN_E3.h
+ * MKS Robin E3 (STM32F103RCT6) board pin assignments
+ */
+
+#if HAS_MULTI_HOTEND || E_STEPPERS > 1
+  #error "MKS Robin E3 only supports one hotend / E-stepper. Comment out this line to continue."
+#endif
+
+#ifndef BOARD_INFO_NAME
+  #define BOARD_INFO_NAME "MKS Robin E3"
+#endif
+
+#include "pins_MKS_ROBIN_E3_common.h"
+========
  * feature/z_stepper_align.h
  */
 
@@ -31,7 +45,7 @@ class ZStepperAlign {
   public:
     static xy_pos_t xy[NUM_Z_STEPPER_DRIVERS];
 
-    #if ENABLED(Z_STEPPER_ALIGN_KNOWN_STEPPER_POSITIONS)
+    #if HAS_Z_STEPPER_ALIGN_STEPPER_XY
       static xy_pos_t stepper_xy[NUM_Z_STEPPER_DRIVERS];
     #endif
 
@@ -39,3 +53,4 @@ class ZStepperAlign {
 };
 
 extern ZStepperAlign z_stepper_align;
+>>>>>>>> Oficial/2.0.x:Marlin/src/feature/z_stepper_align.h
