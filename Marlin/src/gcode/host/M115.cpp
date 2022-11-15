@@ -65,8 +65,8 @@ void GcodeSuite::M115() {
     "PROTOCOL_VERSION:" PROTOCOL_VERSION " "
     "MACHINE_TYPE:" MACHINE_NAME " "
     "EXTRUDER_COUNT:" STRINGIFY(EXTRUDERS) " "
-    #if LINEAR_AXES != XYZ
-      "AXIS_COUNT:" STRINGIFY(LINEAR_AXES) " "
+    #if NUM_AXES != XYZ
+      "AXIS_COUNT:" STRINGIFY(NUM_AXES) " "
     #endif
     #ifdef MACHINE_UUID
       "UUID:" MACHINE_UUID
@@ -129,6 +129,13 @@ void GcodeSuite::M115() {
     // TOGGLE_LIGHTS (M355)
     cap_line(F("TOGGLE_LIGHTS"), ENABLED(CASE_LIGHT_ENABLE));
     cap_line(F("CASE_LIGHT_BRIGHTNESS"), TERN0(CASE_LIGHT_ENABLE, caselight.has_brightness()));
+
+    // SPINDLE AND LASER CONTROL (M3, M4, M5)
+    #if ENABLED(SPINDLE_FEATURE)
+      cap_line(F("SPINDLE"), true);
+    #elif ENABLED(LASER_FEATURE)
+      cap_line(F("LASER"), true);
+    #endif
 
     // EMERGENCY_PARSER (M108, M112, M410, M876)
     cap_line(F("EMERGENCY_PARSER"), ENABLED(EMERGENCY_PARSER));
