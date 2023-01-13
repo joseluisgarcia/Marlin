@@ -36,8 +36,8 @@
 #define X_DIAG_PIN                         P1_29  // X-
 #define Y_DIAG_PIN                         P1_27  // Y-
 #define Z_DIAG_PIN                         P1_25  // Z-
-#define E0_DIAG_PIN                        P1_28  // X+
-#define E1_DIAG_PIN                        P1_26  // Y+
+#define E0_DIAG_PIN                        P1_26  // X+
+#define E1_DIAG_PIN                        P1_28  // Y+
 
 //
 // Limit Switches
@@ -125,15 +125,31 @@
   #define Z_CS_PIN                         P1_10
 #endif
 
-#define E0_STEP_PIN                        P2_13
-#define E0_DIR_PIN                         P0_11
-#define E0_ENABLE_PIN                      P2_12
-#ifndef E0_CS_PIN
-  #define E0_CS_PIN                        P1_08
+//#define E0_STEP_PIN                        P2_13
+//#define E0_DIR_PIN                         P0_11
+//#define E0_ENABLE_PIN                      P2_12
+//#ifndef E0_CS_PIN
+//  #define E0_CS_PIN                        P1_08
+//#endif
+
+
+//#ifndef E1_CS_PIN
+// #define E1_CS_PIN                        P1_01
+//#endif
+
+//Intercambio los pines E0 - E1
+#define E1_STEP_PIN                        P2_13
+#define E1_DIR_PIN                         P0_11
+#define E1_ENABLE_PIN                      P2_12
+#ifndef E1_CS_PIN
+  #define E1_CS_PIN                        P1_08
 #endif
 
-#ifndef E1_CS_PIN
-  #define E1_CS_PIN                        P1_01
+#define E0_STEP_PIN                        P0_01
+#define E0_DIR_PIN                         P0_00
+#define E0_ENABLE_PIN                      P0_10
+#ifndef E0_CS_PIN
+  #define E0_CS_PIN                        P1_01
 #endif
 
 //
@@ -179,11 +195,11 @@
   #define Z_SERIAL_TX_PIN                  P1_14
   #define Z_SERIAL_RX_PIN                  P1_10
 
-  #define E0_SERIAL_TX_PIN                 P1_09
-  #define E0_SERIAL_RX_PIN                 P1_08
+  #define E0_SERIAL_TX_PIN                 P1_04
+  #define E0_SERIAL_RX_PIN                 P1_01
 
-  #define E1_SERIAL_TX_PIN                 P1_04
-  #define E1_SERIAL_RX_PIN                 P1_01
+  #define E1_SERIAL_TX_PIN                 P1_09
+  #define E1_SERIAL_RX_PIN                 P1_08
 
   // Reduce baud rate to improve software serial reliability
   #define TMC_BAUD_RATE                    19200
